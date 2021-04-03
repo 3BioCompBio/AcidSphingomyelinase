@@ -3,8 +3,6 @@
 This repository contains the data tables mentionned in the paper :
 Ancien F., Pucci F., Rooman M., In silico analysis of the molecular-level impact of SMPD1variants on Niemann-Pick disease severity, *MDPI*, *in review process*
 
-Statistical potentials mentioned in this file are explained in more details in :
-
 
 ## NiemannPick.ActivityInputData.csv
 This file contains 66 variants with the input data needed by SMPD1-ZooM and the reported enzymatic activity in literature.
