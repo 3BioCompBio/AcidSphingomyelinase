@@ -5,26 +5,26 @@ Ancien F., Pucci F., Rooman M., In silico analysis of the molecular-level impact
 
 
 ## NiemannPick.ActivityInputData.csv
-This file contains 66 variants with the input data needed by SMPD1-ZooM and the reported enzymatic activity in literature.
+This file contains 66 variants with the non-standardized input data needed by SMPD1-ZooM and the reported enzymatic activity in literature.
 The file is comma-separated with line number, the columns names are described as follows:
 
-- mutName: The mutation descriptor mapped to 3D protein structure numbering
-- activity: Relative enzymatic activity of mutated SMPD1 (in %)
+- MutName: The mutation descriptor mapped to 3D protein structure numbering
+- Activity: Relative enzymatic activity of mutated SMPD1 (in %)
 - Annotation: The phenotype associated with the variant. Unknown (U), Neutral (N), Disease causing (D), NPDA causing (A) or NPDB causing (B)
-- sd: A statistical potential associated with spatial distance between residues (in kcal/mol)
-- sds: A statistical potential associated with spatial distance between residues (in kcal/mol)
-- sad: A statistical potential associated with spatial distance between residues and solvent accessibility (in kcal/mol)
-- acc: Solvent accessibility of the wild-type residue
-- ddG: Folding free energy variation upon mutation as calculated by PoPMuSiC (in kcal/mol)
-- annScore: The deleteriousness score predicted by SNPMuSiC$_{SSS}$ (Deleterious if > 0)
-- CARBOHYD: The spatial distance between variant and the nearest glycosylation site
-- DISULFID: The spatial distance between variant and the closest cystein involved in a disufid bridge
-- METAL: The spatial distance between variant and the nearest metal binding site
-- DEOGEN_2_PREDICTION: The deleteriousness score predicted by DEOGEN2 (Deleterious if > 0.5)
-- DEOGEN_2_PROVEAN_VALUE: The deleteriousness score predicted by PROVEAN (Deleterious if < -2.5)
-- DEOGEN_2_CONSERVATION_INDEX: The conservation index at the variant position
-- DEOGEN_2_PROBABILITY_VALUE: The log-odd ratio of this specific variant
-- isChangingAromaticity: 1 if both or neither wild-type and mutant residues are aromatic, else 0
+- Wsd: A statistical potential associated with spatial distance between residues (in kcal/mol)
+- Wsds: A statistical potential associated with spatial distance between residues (in kcal/mol)
+- Wsad: A statistical potential associated with spatial distance between residues and solvent accessibility (in kcal/mol)
+- Access: Solvent accessibility of the wild-type residue
+- PoPMuSiC: Folding free energy variation upon mutation as calculated by PoPMuSiC (in kcal/mol)
+- SNPsss: The deleteriousness score predicted by SNPMuSiC$_{SSS}$ (Deleterious if > 0)
+- Carbohyd: The spatial distance between variant and the nearest glycosylation site
+- Disulfide: The spatial distance between variant and the closest cystein involved in a disufid bridge
+- Metal: The spatial distance between variant and the nearest metal binding site
+- DEOGEN2: The deleteriousness score predicted by DEOGEN2 (Deleterious if > 0.5)
+- PROVEAN: The deleteriousness score predicted by PROVEAN (Deleterious if < -2.5)
+- EvolCI: The conservation index at the variant position
+- EvolLOR: The log-odd ratio of this specific variant
+- Aromatic: 1 if both or neither wild-type and mutant residues are aromatic, else 0
 
 ## NiemannPick.AllVariants.csv
 This file contains the 309 exomic single nucleotide variants extracted from Uniprot, ClinVar and INPDR.
@@ -41,7 +41,7 @@ Those variants are described in term of their annotations in the different datab
 - rsid: The variant identifier on dbSNP where the variant frequencies were obtained.
 
 ## NiemannPick.InputData.csv
-This file contains 266 variants with the input data on which the analysis in publication was done.
+This file contains 266 variants with the non-standardized input data on which the analysis in publication was done.
 The file is comma-separated with line number, the columns names are described as follows:
 - mutName: The mutation descriptor mapped to 3D protein structure numbering
 - Annotation: The phenotype associated with the variant. Unknown (U), Neutral (N), Disease causing (D), NPDA causing (A) or NPDB causing (B)
@@ -80,7 +80,7 @@ The file is comma-separated with line number, the columns names are described as
 
 
 ## NiemannPick.Predictions.csv
-This file contains SMPD1-Zoom predictions for all 266 variants in NiemannPick.InputData.csv.
+This file contains SMPD1-Zoom predictions for the 130 variants in SMPD1 3D structure for which annotation is either N, A or B.
 Columns are described as follows:
 - mutName: The mutation descriptor mapped to 3D protein structure numbering
 - P(Neutral): The probability for the variant to be Neutral
@@ -90,24 +90,25 @@ Columns are described as follows:
 
 ## NiemannPick.WholeProtein.InputData.csv
 This file contains the data needed by SMPD1-ZooM to make a prediction for all possible variants in SMPD1 3D structure.
-- mutName: The mutation descriptor mapped to 3D protein structure numbering
-- sd: A statistical potential associated with spatial distance between residues (in kcal/mol)
-- sds: A statistical potential associated with spatial distance between residues (in kcal/mol)
-- sad: A statistical potential associated with spatial distance between residues and solvent accessibility (in kcal/mol)
-- acc: Solvent accessibility of the wild-type residue
-- ddG: Folding free energy variation upon mutation as calculated by PoPMuSiC (in kcal/mol)
-- annScore: The deleteriousness score predicted by SNPMuSiC$_{SSS}$ (Deleterious if > 0)
-- CARBOHYD: The spatial distance between variant and the nearest glycosylation site
-- DISULFID: The spatial distance between variant and the closest cystein involved in a disufid bridge
-- METAL: The spatial distance between variant and the nearest metal binding site
-- DEOGEN_2_PREDICTION: The deleteriousness score predicted by DEOGEN2 (Deleterious if > 0.5)
-- DEOGEN_2_PROVEAN_VALUE: The deleteriousness score predicted by PROVEAN (Deleterious if < -2.5)
-- DEOGEN_2_CONSERVATION_INDEX: The conservation index at the variant position
-- DEOGEN_2_PROBABILITY_VALUE: The log-odd ratio of this specific variant
-- isChangingAromaticity: 1 if both or neither wild-type and mutant residues are aromatic, else 0
+- MutName: The mutation descriptor mapped to 3D protein structure numbering
+- Wsd: A statistical potential associated with spatial distance between residues (in kcal/mol)
+- Wsds: A statistical potential associated with spatial distance between residues (in kcal/mol)
+- Wsad: A statistical potential associated with spatial distance between residues and solvent accessibility (in kcal/mol)
+- Access: Solvent accessibility of the wild-type residue
+- PoPMuSiC: Folding free energy variation upon mutation as calculated by PoPMuSiC (in kcal/mol)
+- SNPsss: The deleteriousness score predicted by SNPMuSiC$_{SSS}$ (Deleterious if > 0)
+- Carbohyd: The spatial distance between variant and the nearest glycosylation site
+- Disulfide: The spatial distance between variant and the closest cystein involved in a disufid bridge
+- Metal: The spatial distance between variant and the nearest metal binding site
+- DEOGEN2: The deleteriousness score predicted by DEOGEN2 (Deleterious if > 0.5)
+- PROVEAN: The deleteriousness score predicted by PROVEAN (Deleterious if < -2.5)
+- EvolCI: The conservation index at the variant position
+- EvolLOR: The log-odd ratio of this specific variant
+- Aromatic: 1 if both or neither wild-type and mutant residues are aromatic, else 0
 
 ## NiemannPick.WholeProtein.Predictions.csv
 This file contains SMPD1-Zoom predictions for all the variants in NiemannPick.WholeProtein.InputData.csv.
+Columns are described as follows:
 - mutName: The mutation descriptor mapped to 3D protein structure numbering
 - P(Neutral): The probability for the variant to be Neutral
 - P(NPDA): The probability for the variant to be associated with NPDA
