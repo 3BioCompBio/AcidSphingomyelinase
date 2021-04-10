@@ -10,8 +10,14 @@ def readCommandLine(argv):
     try:
         opts, args = getopt.getopt(argv,"h",["help","var1=","var2="])
 
+
     except getopt.GetoptError as err:
         print(str(err))
+        printUsage()
+        sys.exit(2)
+        
+    if args:
+        print("Unknown argument(s) {}".format(args))
         printUsage()
         sys.exit(2)
 
