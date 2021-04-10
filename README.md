@@ -32,12 +32,12 @@ The file is comma-separated. Both values for heterozygous cases are written in t
 - MutName: The mutation descriptor mapped to 3D protein structure numbering
 - Activity: Relative enzymatic activity of mutated SMPD1 (in %)
 - Annotation: The phenotype associated with the variant. Unknown (U), Neutral (N), Disease causing (D), NPDA causing (A) or NPDB causing (B)
-- Wsd: ΔΔWsd, the variation of energy linked to a statistical potential associated with spatial distance between residues (in kcal/mol)
-- Wsds: ΔΔWsds, the variation of energy linked to a statistical potential associated with spatial distance between residues (in kcal/mol)
-- Wsad: ΔΔWsad, the variation of energy linked to a statistical potential associated with spatial distance between residues and solvent accessibility (in kcal/mol)
+- Wsd: ΔΔW<sub>sd</sub>, the variation of energy linked to a statistical potential associated with spatial distance between residues (in kcal/mol)
+- Wsds: ΔΔW<sub>sds</sub>, the variation of energy linked to a statistical potential associated with spatial distance between residues (in kcal/mol)
+- Wsad: ΔΔW<sub>sad</sub>, the variation of energy linked to a statistical potential associated with spatial distance between residues and solvent accessibility (in kcal/mol)
 - Access: Solvent accessibility of the wild-type residue
 - PoPMuSiC: Folding free energy variation upon mutation as calculated by PoPMuSiC (in kcal/mol)
-- SNPsss: The deleteriousness score predicted by SNPMuSiC$_{SSS}$ (Deleterious if > 0)
+- SNPsss: The deleteriousness score predicted by SNPMuSiC<sub>SSS</sub> (Deleterious if > 0)
 - Carbohyd: The spatial distance between variant and the nearest glycosylation site
 - Disulfide: The spatial distance between variant and the closest cystein involved in a disufid bridge
 - Metal: The spatial distance between variant and the nearest metal binding site
@@ -68,21 +68,21 @@ The file is comma-separated with line number, the columns names are described as
 - Annotation: The phenotype associated with the variant. Unknown (U), Neutral (N), Disease causing (D), NPDA causing (A) or NPDB causing (B)
 - PROVEAN: The deleteriousness score predicted by PROVEAN (Deleterious if < -2.5)
 - DEOGEN2: The deleteriousness score predicted by DEOGEN2 (Deleterious if > 0.5)
-- SNPsss: The deleteriousness score predicted by SNPMuSiC$_{SSS}$ (Deleterious if > 0)
+- SNPsss: The deleteriousness score predicted by SNPMuSiC<sub>SSS</sub> (Deleterious if > 0)
 - PoPMuSiC: Folding free energy variation upon mutation as calculated by PoPMuSiC (in kcal/mol)
-- Wst: ΔΔWst, the variation of energy linked to a statistical potential associated with torsion angles between residues (in kcal/mol)
-- Wstt: ΔΔWstt, the variation of energy linked to a statistical potential associated with torsion angles between residues (in kcal/mol)
-- Wsst: ΔΔWsst, the variation of energy linked to a statistical potential associated with torsion angles between residues (in kcal/mol)
-- Wsa: ΔΔWsa, the variation of energy linked to a statistical potential associated with solvent accessibility (in kcal/mol)
-- Wsaa: ΔΔWsaa, the variation of energy linked to a statistical potential associated with solvent accessibility (in kcal/mol)
-- Wssa: ΔΔWssa, the variation of energy linked to a statistical potential associated with solvent accessibility (in kcal/mol)
-- Wsta: ΔΔWsta, the variation of energy linked to a statistical potential associated with solvent accessibility and torsion angles between residues (in kcal/mol)
-- Wsd: ΔΔWsd, the variation of energy linked to a statistical potential associated with spatial distance between residues (in kcal/mol)
-- Wsds: ΔΔWsds, the variation of energy linked to a statistical potential associated with spatial distance between residues (in kcal/mol)
-- Wsad: ΔΔWsad, the variation of energy linked to a statistical potential associated with spatial distance between residues and solvent accessibility (in kcal/mol)
-- Wsadsa: ΔΔWsadsa, the variation of energy linked to a statistical potential associated with spatial distance between residues and solvent accessibility (in kcal/mol)
-- Wstd: ΔΔWstd, the variation of energy linked to a statistical potential associated with spatial distance and torsion angles between residues (in kcal/mol)
-- Wstdst: ΔΔWstdst, the variation of energy linked to a statistical potential associated with spatial distance and torsion angles between residues (in kcal/mol)
+- Wst: ΔΔW<sub>st</sub>, the variation of energy linked to a statistical potential associated with torsion angles between residues (in kcal/mol)
+- Wstt: ΔΔW<sub>stt</sub>, the variation of energy linked to a statistical potential associated with torsion angles between residues (in kcal/mol)
+- Wsst: ΔΔW<sub>sst</sub>, the variation of energy linked to a statistical potential associated with torsion angles between residues (in kcal/mol)
+- Wsa: ΔΔW<sub>sa</sub>, the variation of energy linked to a statistical potential associated with solvent accessibility (in kcal/mol)
+- Wsaa: ΔΔW<sub>saa</sub>, the variation of energy linked to a statistical potential associated with solvent accessibility (in kcal/mol)
+- Wssa: ΔΔW<sub>ssa</sub>, the variation of energy linked to a statistical potential associated with solvent accessibility (in kcal/mol)
+- Wsta: ΔΔW<sub>sta</sub>, the variation of energy linked to a statistical potential associated with solvent accessibility and torsion angles between residues (in kcal/mol)
+- Wsd: ΔΔW<sub>sd</sub>, the variation of energy linked to a statistical potential associated with spatial distance between residues (in kcal/mol)
+- Wsds: ΔΔW<sub>sds</sub>, the variation of energy linked to a statistical potential associated with spatial distance between residues (in kcal/mol)
+- Wsad: ΔΔW<sub>sad</sub>, the variation of energy linked to a statistical potential associated with spatial distance between residues and solvent accessibility (in kcal/mol)
+- Wsadsa: ΔΔW<sub>sadsa</sub>, the variation of energy linked to a statistical potential associated with spatial distance between residues and solvent accessibility (in kcal/mol)
+- Wstd: ΔΔW<sub>std</sub>, the variation of energy linked to a statistical potential associated with spatial distance and torsion angles between residues (in kcal/mol)
+- Wstdst: ΔΔW<sub>stdst</sub>, the variation of energy linked to a statistical potential associated with spatial distance and torsion angles between residues (in kcal/mol)
 - Access: Solvent accessibility of the wild-type residue
 - DeltaV: The volume difference between wild-type and mutant residues
 - EvolCI: The conservation index at the variant position
@@ -112,12 +112,12 @@ Columns are described as follows:
 ## NiemannPick.WholeProtein.InputData.csv
 This file contains the data needed by SMPD1-ZooM to make a prediction for all possible variants in SMPD1 3D structure.
 - MutName: The mutation descriptor mapped to 3D protein structure numbering
-- Wsd: ΔΔWsd, the variation of energy linked to a statistical potential associated with spatial distance between residues (in kcal/mol)
-- Wsds: ΔΔWsds, the variation of energy linked to a statistical potential associated with spatial distance between residues (in kcal/mol)
-- Wsad: ΔΔWsad, the variation of energy linked to a statistical potential associated with spatial distance between residues and solvent accessibility (in kcal/mol)
+- Wsd: ΔΔW<sub>sd</sub>, the variation of energy linked to a statistical potential associated with spatial distance between residues (in kcal/mol)
+- Wsds: ΔΔW<sub>sds</sub>, the variation of energy linked to a statistical potential associated with spatial distance between residues (in kcal/mol)
+- Wsad: ΔΔW<sub>sad</sub>, the variation of energy linked to a statistical potential associated with spatial distance between residues and solvent accessibility (in kcal/mol)
 - Access: Solvent accessibility of the wild-type residue
 - PoPMuSiC: Folding free energy variation upon mutation as calculated by PoPMuSiC (in kcal/mol)
-- SNPsss: The deleteriousness score predicted by SNPMuSiC$_{SSS}$ (Deleterious if > 0)
+- SNPsss: The deleteriousness score predicted by SNPMuSiC<sub>SSS</sub> (Deleterious if > 0)
 - Carbohyd: The spatial distance between variant and the nearest glycosylation site
 - Disulfide: The spatial distance between variant and the closest cystein involved in a disufid bridge
 - Metal: The spatial distance between variant and the nearest metal binding site
