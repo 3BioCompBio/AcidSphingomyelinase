@@ -60,7 +60,7 @@ def loadData(fileName):
         sys.exit(4)
     data = {}
     for line in dataFile.readlines():
-        if line[0:7].lower() == "mutname":
+        if line[0:8].lower() == "mutation":
             continue
         
         line = line.rstrip()
