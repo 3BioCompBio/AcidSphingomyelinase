@@ -104,19 +104,17 @@ def getVarAnnotation(var):
         print("Impossible to check if given variant(s) is/are annotated in online databases")
         return None
 
-    sequenceBasedMutName = var[0] + str(int(var[1:-1])+2) + var[-1]
-
     annotations = {}
     for line in dataFile.readlines():
         if line[0:7].lower() == "mutname":
             continue
         line = line.rstrip()
         columns = line.split(",")
-        if columns[0] != sequenceBasedMutName:
+        if columns[1] != var:
             continue
 
         else:
-            annotations.update({"Uniprot": columns[1], "ClinVar": columns[2], "INPDR": columns[3], "Combination": columns[4], "rs": columns[8]})
+            annotations.update({"Uniprot": columns[2], "ClinVar": columns[3], "INPDR": columns[4], "Combination": columns[5], "rs": columns[9]})
             return annotations
 
         return None

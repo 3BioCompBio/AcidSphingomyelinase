@@ -1,40 +1,40 @@
 # AcidSphingomyelinase
 
-This repository contains the data tables mentionned in the paper :
-Ancien F., Pucci F., Rooman M., In silico analysis of the molecular-level impact of SMPD1variants on Niemann-Pick disease severity, *MDPI*, *in review process*
+This repository contains the data and predictions mentionned in the paper :
+Ancien F., Pucci F., Rooman M., In silico analysis of the molecular-level impact of SMPD1 variants on Niemann-Pick disease severity, *MDPI*, *under review*
 
-It also contains SMPD1_ZooM.py, a user-friendly program to predict the deleteriousness of variants in SMPD1 structure for homozyhous and heterozygous patients.
+It also contains SMPD1_ZooM.py, a user-friendly program to predict the severity of the Niemann-Pick disease caused by SMPD1 variants, both for homozyhous and heterozygous individuals.
 
 ## SMPD1_ZooM.py
 
-This tool is used to predict the phenotype related to variants in the SMPD1 gene.
-The predicted phenotype is either "A" for Niemann-Pick disease type A, "B" for Niemann-Pick disease type B
-or "N" for a neutral phenotype.
+This tool predicts the phenotype associated to SMPD1 variants.
+The predicted phenotypes are: "A" for Niemann-Pick disease of type A, "B" for Niemann-Pick disease of type B or "N" for neutral phenotype.
+
 
 ```
 USAGE:
     python SMPD1_ZooM.py -var1 VAR1 [-var2 VAR2]
 
 PARAMETERS:
-    -var1:   A variant in the SMPD1 gene. If given alone, SMPD1-ZooM will consider homozygocy and
-            predict the phenotype of a person holding that variant on both alleles.
-            This has to be a proteic variant following the PDB 5i81 residue numbering (i.e W84C for example)
-            Synonymous variants (like W84W) are accepted (Mandatory).
+    -var1:   A variant in the SMPD1 gene. If given alone, SMPD1-ZooM assumes homozygocy and
+            predicts the phenotype of an individual having that variant on both alleles.
+            This has to be an amino acid variant following the PDB 5i81 residue numbering (Mandatory).
 
-    -var2:   A second variant in the SMPD1 gene. If given, SMPD1-ZooM will consider heterozygocy and
-            predict the phenotype of a person holding both variants in their allele. (Optional)
+    -var2:   A second variant in the SMPD1 gene. If present, SMPD1-ZooM assumes heterozygocy and
+            predicts the phenotype of an individual having var1 on one allele and var2 on the
+            other allele. (Optional)
 ```
 
 ## NiemannPick.ActivityInputData.csv
-This file contains 69 variants with the non-standardized input data needed by SMPD1-ZooM and the reported enzymatic activity in literature.
-The file is comma-separated. Both values for heterozygous cases are written in the same line, separated by a '/'.  The columns names are described as follows:
+This file contains 69 variants with the non-standardized input data needed by SMPD1-ZooM and the enzymatic activity reported in literature.
+The file is comma-separated. Both values for heterozygous cases are written in the same line, separated by a '/'.  The column names are described as follows:
 
-- MutName: The mutation descriptor mapped to 3D protein structure numbering
-- Activity: Relative enzymatic activity of mutated SMPD1 (in %)
+- Mutation: The mutation descriptor mapped to 3D protein structure numbering
+- RelativeActivity: Relative enzymatic activity of mutated SMPD1 (in %)
 - Annotation: The phenotype associated with the variant. Unknown (U), Neutral (N), Disease causing (D), NPDA causing (A) or NPDB causing (B)
-- Wsd: ΔΔW<sub>sd</sub>, the variation of energy linked to a statistical potential associated with spatial distance between residues (in kcal/mol)
-- Wsds: ΔΔW<sub>sds</sub>, the variation of energy linked to a statistical potential associated with spatial distance between residues (in kcal/mol)
-- Wsad: ΔΔW<sub>sad</sub>, the variation of energy linked to a statistical potential associated with spatial distance between residues and solvent accessibility (in kcal/mol)
+- ddWsd: ΔΔW<sub>sd</sub>, the variation of energy linked to a statistical potential associated with spatial distance between residues (in kcal/mol)
+- ddWsds: ΔΔW<sub>sds</sub>, the variation of energy linked to a statistical potential associated with spatial distance between residues (in kcal/mol)
+- ddWsad: ΔΔW<sub>sad</sub>, the variation of energy linked to a statistical potential associated with spatial distance between residues and solvent accessibility (in kcal/mol)
 - Access: Solvent accessibility of the wild-type residue
 - PoPMuSiC: Folding free energy variation upon mutation as calculated by PoPMuSiC (in kcal/mol)
 - SNPsss: The deleteriousness score predicted by SNPMuSiC<sub>SSS</sub> (Deleterious if > 0)
@@ -48,10 +48,12 @@ The file is comma-separated. Both values for heterozygous cases are written in t
 - Aromatic: 1 if both or neither wild-type and mutant residues are aromatic, else 0
 
 ## NiemannPick.AllVariants.csv
-This file contains the 309 exomic single nucleotide variants extracted from Uniprot, ClinVar and INPDR.
-Those variants are described in term of their annotations in the different databases and their mutant and wild-type allele frequencies when available.
+This file contains the 309 missense SMPD1 variants extracted from Uniprot, ClinVar and INPDR, their annotations in the different databases and their
+mutant and wild-type allele frequencies when available. The residue numbering used in this file (and only this file), is the UniProt numbering. An
+additional column indicates the corresponding numbering in the PDB file 5i81 when the residue is part of the 3D structure
 
-- MutName: The mutation descriptor mapped to uniprot sequence numbering
+- Mutation: The mutation descriptor mapped to uniprot sequence numbering
+- PDBMutation: The mutation descriptor mapped to structure sequence numbering, when mapping is possible.
 - UniprotAnnotation: The annotation of this variant in Uniprot database. Unknown (U), Neutral (N), Disease causing (D), NPDA causing (A), NPDB causing (B) or not available (NA)
 - ClinVarAnnotation: The annotation of this variant in ClinVar database. Unknown (U), Neutral (N), Disease causing (D), NPDA causing (A), NPDB causing (B) or not available (NA)
 - InpdrAnnotation: The annotation of this variant in the INPDR database. Unknown (U), Neutral (N), Disease causing (D), NPDA causing (A), NPDB causing (B) or not available (NA)
@@ -62,27 +64,27 @@ Those variants are described in term of their annotations in the different datab
 - rsid: The variant identifier on dbSNP where the variant frequencies were obtained.
 
 ## NiemannPick.InputData.csv
-This file contains 266 variants with the non-standardized input data on which the analysis in publication was done.
-The file is comma-separated with line number, the columns names are described as follows:
-- mutName: The mutation descriptor mapped to 3D protein structure numbering
+This file contains 266 SMPD1 missense variants which are covered by the 3D structure, on which our analysis is based.
+The data is non-standardized, the columns names are described as follows:
+- Mutation: The mutation descriptor mapped to 3D protein structure numbering
 - Annotation: The phenotype associated with the variant. Unknown (U), Neutral (N), Disease causing (D), NPDA causing (A) or NPDB causing (B)
 - PROVEAN: The deleteriousness score predicted by PROVEAN (Deleterious if < -2.5)
 - DEOGEN2: The deleteriousness score predicted by DEOGEN2 (Deleterious if > 0.5)
 - SNPsss: The deleteriousness score predicted by SNPMuSiC<sub>SSS</sub> (Deleterious if > 0)
 - PoPMuSiC: Folding free energy variation upon mutation as calculated by PoPMuSiC (in kcal/mol)
-- Wst: ΔΔW<sub>st</sub>, the variation of energy linked to a statistical potential associated with torsion angles between residues (in kcal/mol)
-- Wstt: ΔΔW<sub>stt</sub>, the variation of energy linked to a statistical potential associated with torsion angles between residues (in kcal/mol)
-- Wsst: ΔΔW<sub>sst</sub>, the variation of energy linked to a statistical potential associated with torsion angles between residues (in kcal/mol)
-- Wsa: ΔΔW<sub>sa</sub>, the variation of energy linked to a statistical potential associated with solvent accessibility (in kcal/mol)
-- Wsaa: ΔΔW<sub>saa</sub>, the variation of energy linked to a statistical potential associated with solvent accessibility (in kcal/mol)
-- Wssa: ΔΔW<sub>ssa</sub>, the variation of energy linked to a statistical potential associated with solvent accessibility (in kcal/mol)
-- Wsta: ΔΔW<sub>sta</sub>, the variation of energy linked to a statistical potential associated with solvent accessibility and torsion angles between residues (in kcal/mol)
-- Wsd: ΔΔW<sub>sd</sub>, the variation of energy linked to a statistical potential associated with spatial distance between residues (in kcal/mol)
-- Wsds: ΔΔW<sub>sds</sub>, the variation of energy linked to a statistical potential associated with spatial distance between residues (in kcal/mol)
-- Wsad: ΔΔW<sub>sad</sub>, the variation of energy linked to a statistical potential associated with spatial distance between residues and solvent accessibility (in kcal/mol)
-- Wsadsa: ΔΔW<sub>sadsa</sub>, the variation of energy linked to a statistical potential associated with spatial distance between residues and solvent accessibility (in kcal/mol)
-- Wstd: ΔΔW<sub>std</sub>, the variation of energy linked to a statistical potential associated with spatial distance and torsion angles between residues (in kcal/mol)
-- Wstdst: ΔΔW<sub>stdst</sub>, the variation of energy linked to a statistical potential associated with spatial distance and torsion angles between residues (in kcal/mol)
+- ddWst: ΔΔW<sub>st</sub>, the variation of energy linked to a statistical potential associated with torsion angles between residues (in kcal/mol)
+- ddWstt: ΔΔW<sub>stt</sub>, the variation of energy linked to a statistical potential associated with torsion angles between residues (in kcal/mol)
+- ddWsst: ΔΔW<sub>sst</sub>, the variation of energy linked to a statistical potential associated with torsion angles between residues (in kcal/mol)
+- ddWsa: ΔΔW<sub>sa</sub>, the variation of energy linked to a statistical potential associated with solvent accessibility (in kcal/mol)
+- ddWsaa: ΔΔW<sub>saa</sub>, the variation of energy linked to a statistical potential associated with solvent accessibility (in kcal/mol)
+- ddWssa: ΔΔW<sub>ssa</sub>, the variation of energy linked to a statistical potential associated with solvent accessibility (in kcal/mol)
+- ddWsta: ΔΔW<sub>sta</sub>, the variation of energy linked to a statistical potential associated with solvent accessibility and torsion angles between residues (in kcal/mol)
+- ddWsd: ΔΔW<sub>sd</sub>, the variation of energy linked to a statistical potential associated with spatial distance between residues (in kcal/mol)
+- ddWsds: ΔΔW<sub>sds</sub>, the variation of energy linked to a statistical potential associated with spatial distance between residues (in kcal/mol)
+- ddWsad: ΔΔW<sub>sad</sub>, the variation of energy linked to a statistical potential associated with spatial distance between residues and solvent accessibility (in kcal/mol)
+- ddWsadsa: ΔΔW<sub>sadsa</sub>, the variation of energy linked to a statistical potential associated with spatial distance between residues and solvent accessibility (in kcal/mol)
+- ddWstd: ΔΔW<sub>std</sub>, the variation of energy linked to a statistical potential associated with spatial distance and torsion angles between residues (in kcal/mol)
+- ddWstdst: ΔΔW<sub>stdst</sub>, the variation of energy linked to a statistical potential associated with spatial distance and torsion angles between residues (in kcal/mol)
 - Access: Solvent accessibility of the wild-type residue
 - DeltaV: The volume difference between wild-type and mutant residues
 - EvolCI: The conservation index at the variant position
@@ -101,23 +103,23 @@ The file is comma-separated with line number, the columns names are described as
 
 
 ## NiemannPick.Predictions.csv
-This file contains SMPD1-Zoom predictions for the 130 variants in SMPD1 3D structure for which annotation is either N, A or B.
+This file contains the SMPD1-Zoom predictions for the 130 variants in the SMPD1 3D structure with annotation N, A or B.
 Columns are described as follows:
-- mutName: The mutation descriptor mapped to 3D protein structure numbering
+- Mutation: The mutation descriptor mapped to 3D protein structure numbering
 - P(Neutral): The probability for the variant to be Neutral
 - P(NPDA): The probability for the variant to be associated with NPDA
 - P(NPDB): The probability for the variant to be associated with NPDB
 - Prediction: The class given to the variant based on the highest probability
 
 ## NiemannPick.WholeProtein.InputData.csv
-This file contains the data needed by SMPD1-ZooM to make a prediction for all possible variants in SMPD1 3D structure.
-- MutName: The mutation descriptor mapped to 3D protein structure numbering
-- Wsd: ΔΔW<sub>sd</sub>, the variation of energy linked to a statistical potential associated with spatial distance between residues (in kcal/mol)
-- Wsds: ΔΔW<sub>sds</sub>, the variation of energy linked to a statistical potential associated with spatial distance between residues (in kcal/mol)
-- Wsad: ΔΔW<sub>sad</sub>, the variation of energy linked to a statistical potential associated with spatial distance between residues and solvent accessibility (in kcal/mol)
+This file contains the data needed by SMPD1-ZooM to make a prediction for all possible variants in the SMPD1 3D structure.
+- Mutation: The mutation descriptor mapped to 3D protein structure numbering
+- ddWsd: ΔΔW<sub>sd</sub>, the variation of energy linked to a statistical potential associated with spatial distance between residues (in kcal/mol)
+- ddWsds: ΔΔW<sub>sds</sub>, the variation of energy linked to a statistical potential associated with spatial distance between residues (in kcal/mol)
+- ddWsad: ΔΔW<sub>sad</sub>, the variation of energy linked to a statistical potential associated with spatial distance between residues and solvent accessibility (in kcal/mol)
 - Access: Solvent accessibility of the wild-type residue
 - PoPMuSiC: Folding free energy variation upon mutation as calculated by PoPMuSiC (in kcal/mol)
-- SNPsss: The deleteriousness score predicted by SNPMuSiC<sub>SSS</sub> (Deleterious if > 0)
+- SNPMuSiCsss: The deleteriousness score predicted by SNPMuSiC<sub>SSS</sub> (Deleterious if > 0)
 - Carbohyd: The spatial distance between variant and the nearest glycosylation site
 - Disulfide: The spatial distance between variant and the closest cystein involved in a disufid bridge
 - Metal: The spatial distance between variant and the nearest metal binding site
@@ -130,7 +132,7 @@ This file contains the data needed by SMPD1-ZooM to make a prediction for all po
 ## NiemannPick.WholeProtein.Predictions.csv
 This file contains SMPD1-Zoom predictions for all the variants in NiemannPick.WholeProtein.InputData.csv.
 Columns are described as follows:
-- mutName: The mutation descriptor mapped to 3D protein structure numbering
+- Mutation: The mutation descriptor mapped to 3D protein structure numbering
 - P(Neutral): The probability for the variant to be Neutral
 - P(NPDA): The probability for the variant to be associated with NPDA
 - P(NPDB): The probability for the variant to be associated with NPDB

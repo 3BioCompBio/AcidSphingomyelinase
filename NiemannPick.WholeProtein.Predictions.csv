@@ -1,4 +1,4 @@
-mutName,P(Neutral),P(NPDA),P(NPDB),Prediction
+Mutation,P(Neutral),P(NPDA),P(NPDB),Prediction
 W84A,0.909,0.000,0.091,N
 W84C,0.818,0.000,0.182,N
 W84D,0.909,0.000,0.091,N
