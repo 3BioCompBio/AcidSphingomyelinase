@@ -1,7 +1,7 @@
 # AcidSphingomyelinase
 
 This repository contains the data and predictions mentionned in the paper :
-Ancien F., Pucci F., Rooman M., In silico analysis of the molecular-level impact of SMPD1 variants on Niemann-Pick disease severity, *MDPI*, *under review*
+Ancien F., Pucci F., Rooman M., In silico analysis of the molecular-level impact of SMPD1 variants on Niemann-Pick disease severity, **Int. J. Mol. Sci.** 2021, 22(9), 4516
 
 It also contains SMPD1_ZooM.py, a user-friendly program to predict the severity of the Niemann-Pick disease caused by SMPD1 variants, both for homozyhous and heterozygous individuals.
 
